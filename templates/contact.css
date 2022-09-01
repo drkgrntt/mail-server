@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+
+.container {
+  height: 100vh;
+  padding: 1rem;
+  background-image: linear-gradient(
+    to bottom right,
+    #f5e1e1,
+    #f7fff8,
+    #f0e6ff
+  );
+}
+
+.form-container {
+  margin: 0 auto;
+  max-width: 60ch;
+}
+
+#contact-form {
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.input,
+.textarea,
+.submit {
+  padding: 0.5rem;
+  font-size: 16px;
+  background: transparent;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.input:not(:focus),
+.textarea:not(:focus) {
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 0.5rem 0 0 0;
+}
+
+.submit {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  #contact-form {
+    grid-template-areas:
+      'a a'
+      'b c'
+      'd d'
+      'e e'
+      'f f';
+  }
+
+  .name-field {
+    grid-area: a;
+  }
+  .email-field {
+    grid-area: b;
+  }
+  .phone-field {
+    grid-area: c;
+  }
+  .message-field {
+    grid-area: d;
+  }
+  .submit {
+    grid-area: e;
+  }
+  .validation {
+    grid-area: f;
+  }
+}

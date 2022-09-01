@@ -5,6 +5,7 @@ import cors from 'cors'
 import { json, urlencoded } from 'body-parser'
 import Mailgun from 'mailgun.js'
 import { parseEmail } from './utils/parseEmail'
+import path from 'path'
 
 const main = async () => {
   const app = express()
@@ -12,6 +13,8 @@ const main = async () => {
   app.use(cors())
   app.use(json())
   app.use(urlencoded({ extended: true }))
+
+  app.use(express.static(`${__dirname}/../templates`))
 
   app.post('/api/contact', async (req, res) => {
     try {
@@ -49,6 +52,10 @@ const main = async () => {
     } catch (err) {
       res.send({ err })
     }
+  })
+
+  app.get('*', (_, res) => {
+    res.sendFile(path.join(__dirname, '../templates/contact.html'))
   })
 
   app.listen(parseInt(process.env.PORT as string), () => {
