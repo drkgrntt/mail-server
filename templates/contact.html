@@ -7,59 +7,64 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <link
+      rel="stylesheet"
+      href="https://build.derekgarnett.com/index.css"
+    />
     <link rel="stylesheet" href="./contact.css" />
+    <script
+      src="https://build.derekgarnett.com/index.js"
+      defer
+      type="module"
+    ></script>
     <script src="./contact.js" defer></script>
     <title>Contact Derek Garnett</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-      rel="stylesheet"
-    />
   </head>
   <body>
-    <div class="container">
+    <drk-container>
       <div class="form-container">
         <h1>Contact</h1>
 
         <form id="contact-form">
-          <div class="field name-field">
-            <input class="input" type="text" name="name" id="name" />
-            <label for="name">Name</label>
-          </div>
+          <drk-field class="name-field">
+            <input slot="input" type="text" name="name" id="name" />
+            <label slot="label" for="name">Name</label>
+          </drk-field>
 
-          <div class="field email-field">
+          <drk-field class="email-field">
             <input
-              class="input"
+              slot="input"
               type="email"
               name="email"
               id="email"
             />
-            <label for="email">Email</label>
-          </div>
+            <label slot="label" for="email">Email</label>
+          </drk-field>
 
-          <div class="field phone-field">
+          <drk-field class="phone-field">
             <input
-              class="input"
+              slot="input"
               type="phone"
               name="phone"
               id="phone"
             />
-            <label for="phone">Phone</label>
-          </div>
+            <label slot="label" for="phone">Phone</label>
+          </drk-field>
 
-          <div class="field message-field">
+          <drk-field class="message-field">
             <textarea
-              class="textarea"
+              slot="input"
               name="message"
               id="message"
               rows="5"
             ></textarea>
-            <label for="message">Message</label>
-          </div>
+            <label slot="label" for="message">Message</label>
+          </drk-field>
 
           <input class="submit" type="submit" />
           <p class="validation"></p>
         </form>
       </div>
-    </div>
+    </drk-container>
   </body>
 </html>
