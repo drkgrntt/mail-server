@@ -26,12 +26,12 @@
         <h1>Contact</h1>
 
         <form id="contact-form">
-          <drk-field class="name-field">
+          <drk-field data-name class="name-field">
             <input slot="input" type="text" name="name" id="name" />
             <label slot="label" for="name">Name</label>
           </drk-field>
 
-          <drk-field class="email-field">
+          <drk-field data-email class="email-field">
             <input
               slot="input"
               type="email"
@@ -41,7 +41,7 @@
             <label slot="label" for="email">Email</label>
           </drk-field>
 
-          <drk-field class="phone-field">
+          <drk-field data-phone class="phone-field">
             <input
               slot="input"
               type="phone"
@@ -51,7 +51,7 @@
             <label slot="label" for="phone">Phone</label>
           </drk-field>
 
-          <drk-field class="message-field">
+          <drk-field data-message class="message-field">
             <textarea
               slot="input"
               name="message"
@@ -62,7 +62,6 @@
           </drk-field>
 
           <input class="submit" type="submit" />
-          <p class="validation"></p>
         </form>
       </div>
     </drk-container>

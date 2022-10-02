@@ -17,22 +17,33 @@ window.onload = () => {
       },
     }
 
-    const validation = event.target.querySelector('.validation')
-    const setValidation = (message) => {
-      validation.textContent = message
+    const nameField = event.target.querySelector('[data-name]')
+    const phoneField = event.target.querySelector('[data-phone]')
+    const emailField = event.target.querySelector('[data-email]')
+    const messageField = event.target.querySelector('[data-message]')
+
+    const setValidation = (field, message) => {
+      field.setAttribute('validation', message)
       setTimeout(() => {
-        validation.textContent = ''
+        field.setAttribute('validation', '')
       }, 7000)
     }
 
+    if (!payload.message) {
+      setValidation(messageField, 'Please include a message!')
+    }
+    if (!payload.contact.name) {
+      setValidation(nameField, 'Please include your name!')
+    }
+    if (!(payload.contact.phone || payload.contact.email)) {
+      setValidation(emailField, 'Please include your phone or email!')
+      setValidation(phoneField, 'Please include your phone or email!')
+    }
     if (
       !payload.message ||
       !payload.contact.name ||
       !(payload.contact.phone || payload.contact.email)
     ) {
-      setValidation(
-        'Please include your name, your phone or email, and a message!'
-      )
       return
     }
 
@@ -46,7 +57,7 @@ window.onload = () => {
       .then((res) => res.json())
       .then((res) => {
         console.log({ res })
-        setValidation("Thanks, I'll be in touch :)")
+        setValidation(messageField, "Thanks, I'll be in touch :)")
         message.value = ''
         name.value = ''
         phone.value = ''
